@@ -125,6 +125,38 @@ git push origin main
    - Select "Deploy from branch: main"
    - Your site will be available at: `https://davidcognite.github.io/sharon-webster.work/`
 
+## 🔧 Maintenance Mode
+
+When you need to take the site offline for maintenance:
+
+1. **Enable Maintenance Mode**:
+```bash
+# The original site is backed up as index.html.backup
+cp index.html.backup index.html.original
+# Maintenance page is now active
+```
+
+2. **Restore Full Site**:
+```bash
+# Restore from backup
+mv index.html.backup index.html
+# Or restore from original
+mv index.html.original index.html
+```
+
+3. **Current Status**:
+   - `index.html` - Currently showing maintenance page
+   - `index.html.backup` - Full site backup (restore this when ready)
+
+4. **Deploy Changes**:
+```bash
+git add .
+git commit -m "Update maintenance status"
+git push origin main
+```
+
+**Note**: GitHub Pages automatically deploys when you push to the main branch. Changes typically appear within 1-2 minutes.
+
 ## 🔄 Regular Updates
 
 ### Adding New Work
